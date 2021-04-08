@@ -15,6 +15,7 @@ def run():
         sales.append(sale)
     total = sum(sales)
     print('Total sales: {}'.format(total))
+    print('Average sales: {}'.format(total/12))
 run()
 
 

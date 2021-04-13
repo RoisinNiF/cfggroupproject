@@ -16,6 +16,16 @@ def run():
     total = sum(sales)
     print('Total sales: {}'.format(total))
     print('Average sales: {}'.format(total/12))
+    month = []
+    for row in data:
+        months = str(row['month'])
+        month.append(months)
+    print('MONTHS')
+    for months in month:
+        print(months)
+    print('SALES')
+    for sale in sales: 
+        print(sale)
 run()
 
 

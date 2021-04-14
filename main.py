@@ -14,20 +14,31 @@ def run():
         sale = int(row['sales'])
         sales.append(sale)
     total = sum(sales)
-    print('Total sales: {}'.format(total))
-    print('Average sales: {}'.format((round(total/12, 2))))
     month = []
     for row in data:
         months = str(row['month'])
         month.append(months)
-    print('MONTHS')
-    for months in month:
-        print(months)
-    print('SALES')
-    for sale in sales: 
-        print(sale)
+    
+    #For loop to print the total sales across each month
+    print('Months Sales')
+    for months, sale in zip(month, sales): 
+        print(months,sale)
+    
+    print('Total sales: €{}'.format(total))
+    print('Average sales: €{}'.format((round(total/12, 2))))
+        
+    #For loops to find the highest and lowest sale months
+    for months, sale in zip(month, sales):
+        if sale == max(sales):
+            print('Highest sale month: {}'.format(months))
+            print('Highest sale: €{}'.format(highest_sale))
+    for months, sale in zip(month, sales):    
+        if sale == min(sales):
+            print('Lowest sale month: {}'.format(months))
+            print('Lowest sale: €{}'.format(lowest_sale))
      
-    #Monthly Sale Changes as parcentage
+    #Monthly Sale Changes as percentages
+    print('Monthly Sale Changes as Percentages')
     i = 0
     for sale in sales:
         percentage_diff=((sales[i+1] - sales[i])/sales[i]) * 100

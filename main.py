@@ -26,6 +26,13 @@ def run():
     print('SALES')
     for sale in sales: 
         print(sale)
+     
+    #Monthly Sale Changes as parcentage
+    i = 0
+    for sale in sales:
+        percentage_diff=((sales[i+1] - sales[i])/sales[i]) * 100
+        print(percentage_diff)
+        i = i + 1
 run()
 
 

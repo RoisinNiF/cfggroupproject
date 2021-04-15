@@ -20,6 +20,10 @@ def run():
     for row in data:
         months = str(row['month'])
         month.append(months)
+    expenditure = []
+    for row in data:
+        expense = int(row['expenditure'])
+        expenditure.append(expense)
     
     #For loop prints the total sales across each month
     print('Months Sales')
@@ -39,8 +43,17 @@ def run():
             print('Lowest sale month: {}'.format(months))
             print('Lowest sale: €{}'.format(lowest_sale))
      
+    # Monthly Profit
+    yearly_profit = 0
+    print('Monthly Profit in €')
+    for sale, expense in zip(sales, expenditure):
+        monthly_profit = sale - expense
+        print(monthly_profit)
+        yearly_profit = yearly_profit + monthly_profit
+    print('Yearly profit: €{}'.format(yearly_profit))
+    
     #Monthly Sale Changes as percentages
-    print('Monthly Sale Changes as Percentages')
+    print('Monthly Sale Changes as Percentages (%)')
     i = 0
     for sale in sales:
         percentage_diff=((sales[i+1] - sales[i])/sales[i]) * 100
